@@ -636,10 +636,6 @@ background-color: transparent;
   border-width: 0 0 1px;
 }
 
-.navbar-collapse.collapse {
-  display: none !important;
-}
-
 .navbar-nav {
   float: none !important;
   margin-top: 7.5px;
@@ -698,8 +694,6 @@ background-color: transparent;
   display: block !important;
 }
 }
-
-
 
 .social-icons a {
   display: inline-block;
