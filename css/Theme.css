@@ -18,7 +18,7 @@ box-sizing: border-box;
 .row:after,
 .row:before {
 content: " ";
-display: table;
+display: none !important;
 clear: both;
 }
 
