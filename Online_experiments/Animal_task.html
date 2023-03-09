@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>'Gotta catch 'em all!'</title>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="https://unpkg.com/jspsych@7.3.1"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-browser-check@1.0.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-fullscreen@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-call-function@1.1.2"></script>
+    <link href="https://unpkg.com/jspsych@7.3.1/css/jspsych.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body></body>
+  <script>
+
+    var testing_mode = 1;
+    var instructions = 1; // set to 0 if you wish to skip the instructions
+    var online = 1;
+
+    //if (document.location.host) { // returns your host or null
+    //  online = true;
+    //} else {
+    //  online = false;
+    //};
+
+    var jsPsych = initJsPsych({override_safe_mode: true})
+    var timeline = []
+
+    var date = new Date();
+    var session_time = date.getTime();
+
+    if (online==1){
+      var ppID = jsPsych.data.getURLVariable('PROLIFIC_PID');
+      var Session = Number(jsPsych.data.getURLVariable('SESSION_ID'));
+    }else{
+      var ppID = "test_self";
+      var Session = 3;
+    }
+
+    var seed = jsPsych.randomization.setSeed(ppID)
+    console.log(seed)
+
+    var block_number = 0;
+    var trial_number = 0;
+    var fixation_width = screen.width;
+    var boat_width = screen.width / 20;
+    var fixation_radius = screen.width / 5 + screen.width / 22;
+    var fixation_angle = 0;
+    var fixation_loop_count = 0
+    var target_width = screen.width;
+    var dot_width = screen.width / 100;
+    var target_angle = 0;
+    var target_radius = 0.059 * screen.width;
+    var cage_width = screen.width * 0.1;
+    var cage_location = 0;
+    var cage_x_coord = 0;
+    var cage_y_coord = 0;
+    var target_loop_count = 0;
+    var end_target_loop = 0;
+    var register_responses = 0;
+    var presentation_time = 0;
+    var response_time = 0;
+    var feedback_width = screen.width;
+    var animal_width = screen.width / 25;
+    var animal_y_coord = screen.height / 10;
+    var feedback_loop_count = 0;
+    var catch_count = 0
+    var reward_round = 0;
+    var animal_x_show = [.15*screen.width - animal_width/2, .35*screen.width - animal_width/2, .65*screen.width - animal_width/2, .85*screen.width - animal_width/2];
+    var animal_y_show = screen.height*0.81;
+    var heap_width = screen.width / 20;
+    var heap_x_coord = 0;
+    var heap_y_coord = 0.0975 * screen.height;
+
+    var animals = ["Images/crab.png", "Images/HighFish.png", "Images/Seahorse.png", "Images/Seastar.png", "Images/Shell.png", "Images/Squid.png", "Images/Bulbfish.png", "Images/LongFish.png"]
+    var island_rotation = Math.floor(Math.random()*4);
+    var animals_randomized = jsPsych.randomization.repeat(animals, 1);
+
+    var session_data = {
+      id: ppID,
+      animals: animals_randomized,
+      locs: island_rotation,
+      session: Session
+    };
+
+    var seed = jsPsych.randomization.setSeed(ppID+Session)
+
+    if (island_rotation ==0){
+      var coordinates = [[.125, .25, .375, .625, .75, .875, .1875, .8125],
+      [.125, .25, .375, .625, .75, .875, .1875, .8125],
+      [.375, .75, .125, .875, .25, .625, .45, .55],
+      [.375, .875, .75, .625, .125, .25, .6785, .3215],
+      [.875, .75, .625, .375, .25, .125, .8125, .1875],
+      [.875, .75, .625, .375, .25, .125, .8125, .1875],
+      [.625, .25, .875, .125, .75, .375, .55, .45],
+      [.625, .125, .25, .375, .875, .75, .3215, .6785]];
+    }else if (island_rotation ==1){
+      var coordinates = [[.625, .25, .875, .125, .75, .375, .55, .45],
+      [.625, .125, .25, .375, .875, .75, .3215, .6785],
+      [.125, .25, .375, .625, .75, .875, .1875, .8125],
+      [.125, .25, .375, .625, .75, .875, .1875, .8125],
+      [.375, .75, .125, .875, .25, .625, .45, .55],
+      [.375, .875, .75, .625, .125, .25, .6785, .3215],
+      [.875, .75, .625, .375, .25, .125, .8125, .1875],
+      [.875, .75, .625, .375, .25, .125, .8125, .1875]];
+    }else if (island_rotation ==2){
+      var coordinates = [[.875, .75, .625, .375, .25, .125, .8125, .1875],
+      [.875, .75, .625, .375, .25, .125, .8125, .1875],
+      [.625, .25, .875, .125, .75, .375, .55, .45],
+      [.625, .125, .25, .375, .875, .75, .3215, .6785],
+      [.125, .25, .375, .625, .75, .875, .1875, .8125],
+      [.125, .25, .375, .625, .75, .875, .1875, .8125],
+      [.375, .75, .125, .875, .25, .625, .45, .55],
+      [.375, .875, .75, .625, .125, .25, .6785, .3215]];
+    }else{
+      var coordinates = [[.375, .75, .125, .875, .25, .625, .45, .55],
+      [.375, .875, .75, .625, .125, .25, .6785, .3215],
+      [.875, .75, .625, .375, .25, .125, .8125, .1875],
+      [.875, .75, .625, .375, .25, .125, .8125, .1875],
+      [.625, .25, .875, .125, .75, .375, .55, .45],
+      [.625, .125, .25, .375, .875, .75, .3215, .6785],
+      [.125, .25, .375, .625, .75, .875, .1875, .8125],
+      [.125, .25, .375, .625, .75, .875, .1875, .8125]];
+    }
+	
+	function saveData(filename, filedata) {
+      $.ajax({ // make sure jquery-1.7.1.min.js is loaded in the html header for this to work
+        type: 'post',
+        cache: false,
+        url: 'php/save_data.php', // IMPORTANT: change the php script to link to the directory of your server where you want to store the data!
+        data: {
+          filename: filename,
+          filedata: filedata
+        },
+      });
+    };
+	
+    function lineDraw() {
+      target_angle = target_angle + 2
+      output = "<div class = 'line' style = 'transform-origin: top left; transform: rotate(" + target_angle + "deg); width: " + target_radius * 1.25 + "px; height: 1px; " +
+        "background: black; position: fixed; top: " + 0.165 * screen.height + "px; left: " + screen.width / 2 + "px;'></div>"
+      return output
+    }
+
+    function Randomization(animals_randomized, island_rotation, coordinates, Session, screen_width){
+      var Design = []
+      var location_list = []
+      var location_angle_list = [110, 70, 20, 340, 290, 250, 200, 160]
+      //var rotation_angle = 360/8
+      var trial_counter = 0;
+      if (Session == 3){
+        rounds = 3
+      }else{
+        rounds = 1
+      }
+      for (r = 0; r < rounds; r ++){
+        round = Session +r
+        if (round == 1 || round == 2){
+          var nblocks = 4;
+          var nstimreps = 3;
+          var nstims = 6;
+          var nlocs = 8;
+          var ctrials = nstims * nstimreps;
+          for (b = 0; b< nblocks; b++){
+            var location_visits = jsPsych.randomization.shuffle([0,1,2,3,4,5,6,7]);
+            for (locs = 0; locs< nlocs; locs++){
+              var stimulus_ids = jsPsych.randomization.repeat([...Array(nstims).keys()], nstimreps);
+              for (ct = 0; ct < ctrials; ct ++){
+                if (locs == 0 && ct ==0 && b>0){
+                  br = true
+                }else{
+                  br = false
+                }
+                if (ct ==0){
+                  nl = true
+                }else{
+                  nl = false
+                }
+                x_coord = coordinates[location_visits[locs]][stimulus_ids[ct]]
+                Design[trial_counter]={
+                  Round: round,
+                  Block: b,
+                  Trial: trial_counter,
+                  Loc: location_visits[locs],
+                  Loc_angle: location_angle_list[location_visits[locs]],//(location_visits[locs]+ 1) * rotation_angle,
+                  Stimulus_id: stimulus_ids[ct],
+                  Stimulus: animals_randomized[stimulus_ids[ct]],
+                  Target_x_coord: x_coord,
+                  Screen_x_coord: x_coord * screen_width,
+                  Break_required: br,
+                  Novel_location: nl
+                }
+                trial_counter +=1
+              }
+            }
+          }
+        }else if (round == 3){
+          var b = 0;
+          var nstimreps = 3;
+          var nstims = 6;
+          var nlocs = 8;
+          var ctrials = nstims * nstimreps;
+          var location_visits = jsPsych.randomization.shuffle([0,1,2,3,4,5,6,7]);
+          for (locs = 0; locs< nlocs; locs++){
+            var stimulus_ids = jsPsych.randomization.repeat([...Array(nstims).keys()], nstimreps);
+            for (ct = 0; ct < ctrials; ct ++){
+              if (ct ==0){
+                nl = true
+              }else{
+                nl = false
+              }
+              x_coord = coordinates[location_visits[locs]][stimulus_ids[ct]]
+              Design[trial_counter]={
+                Round: round,
+                Block: b,
+                Trial: trial_counter,
+                Loc: location_visits[locs],
+                Loc_angle: location_angle_list[location_visits[locs]],//(location_visits[locs]+ 1) * rotation_angle,
+                Stimulus_id: stimulus_ids[ct],
+                Stimulus: animals_randomized[stimulus_ids[ct]],
+                Target_x_coord: x_coord,
+                Screen_x_coord: x_coord * screen_width,
+                Break_required: false,
+                Novel_location: nl
+              }
+              trial_counter +=1
+            }
+          }
+        }else if (round == 4){
+          var nblocks = 8;
+          var nstimreps = 3;
+          var nstims = 2;
+          var nlocs = 2;
+          var ctrials = nstims * nstimreps;
+          for (b = 0; b< nblocks; b++){
+            if (island_rotation ==0){
+              var location_visits = [2, 5];
+            }
+            else if (island_rotation ==1){
+              var location_visits = [0, 3];
+            }
+            else if (island_rotation ==2){
+              var location_visits = [6, 1];
+            }
+            else {
+              var location_visits = [7, 4];
+            }
+            for (locs = 0; locs< nlocs; locs++){
+              var stimulus_ids = jsPsych.randomization.repeat([...Array(nstims).keys()].map(i => i + 6), nstimreps);
+              for (ct = 0; ct < ctrials; ct ++){
+                if (locs == 0 && ct == 0 && b%4 == 0){
+                  br = true
+                }else{
+                  br = false
+                }
+                if (ct ==0){
+                  nl = true
+                }else{
+                  nl = false
+                }
+                x_coord = coordinates[location_visits[locs]][stimulus_ids[ct]]
+                Design[trial_counter]={
+                  Round: round,
+                  Block: b,
+                  Trial: trial_counter,
+                  Loc: location_visits[locs],
+                  Loc_angle: location_angle_list[location_visits[locs]],//(location_visits[locs]+ 1) * rotation_angle,
+                  Stimulus_id: stimulus_ids[ct],
+                  Stimulus: animals_randomized[stimulus_ids[ct]],
+                  Target_x_coord: x_coord,
+                  Screen_x_coord: x_coord * screen_width,
+                  Break_required: br,
+                  Novel_location: nl
+                }
+                trial_counter +=1
+              }
+            }
+          }
+        }else if (round ==5){
+          var nblocks = 2;
+          var nstimreps = 3;
+          var nstims = 2;
+          var nlocs = 8;
+          var ctrials = nstims * nstimreps;
+          for (b = 0; b< nblocks; b++){
+            var location_visits = jsPsych.randomization.shuffle([0,1,2,3,4,5,6,7]);
+            for (locs = 0; locs< nlocs; locs++){
+              var stimulus_ids = jsPsych.randomization.repeat([...Array(nstims).keys()].map(i => i + 6), nstimreps);
+              for (ct = 0; ct < ctrials; ct ++){
+                if (ct ==0){
+                  if (locs ==0 && b==0){
+                    br = true
+                  }else{
+                    br = false
+                  }
+                  nl = true
+                }else{
+                  nl = false
+                  br = false
+                }
+                x_coord = coordinates[location_visits[locs]][stimulus_ids[ct]]
+                Design[trial_counter]={
+                  Round: round,
+                  Block: b,
+                  Trial: trial_counter,
+                  Loc: location_visits[locs],
+                  Loc_angle: location_angle_list[location_visits[locs]],//(location_visits[locs]+ 1) * rotation_angle,
+                  Stimulus_id: stimulus_ids[ct],
+                  Stimulus: animals_randomized[stimulus_ids[ct]],
+                  Target_x_coord: x_coord,
+                  Screen_x_coord: x_coord * screen_width,
+                  Break_required: br,
+                  Novel_location: nl
+                }
+                trial_counter +=1
+              }
+            }
+          }
+        }
+      }
+      return Design
+    }
+
+    Session_design = Randomization(animals_randomized, island_rotation, coordinates, Session, screen.width)
+    console.log(Session_design.length)
+
+    timeline.push({
+      type: jsPsychBrowserCheck,
+      inclusion_function: (data) => {
+        return data.browser != "firefox" && data.vsync_rate >= 55 && data.vsync_rate <= 65 && data.mobile == false
+      },
+      exclusion_message: (data) => {
+        if(data.browser == "firefox"){
+          return "<p>Firefox not a suited browser for this experiment.</p>"
+        //} else if (Math.round(screen.width / screen.height * 100) / 100 != 1.78){
+        //  return "<p>The aspect ratio of your screen is unsuited for this experiment. <br> Probably you are using mac. Maybe you have another screen or pc available?</p>"
+        } else if (data.vsync_rate <= 55 || data.vsync_rate >= 65){
+          return "<p>The refresh rate of your screen is unsuited for this experiment, try a different screen.</p>"
+        } else if (data.mobile == true){
+          return "<p>You can only participate with a pc or laptop.</p>"
+        }
+      }
+    })
+
+    timeline.push({
+      type: jsPsychPreload,
+      images: ["Images/Left_1.png", "Images/Left_2.png", "Images/Right_1.png", "Images/Right_2.png", "Images/Right_3.png",
+        "Images/Fixation.png", "Images/Boat.png", "Images/Target.png", "Images/Dot.png", "Images/Cage.png", "Images/Feedback.png", "Images/Heap.png",
+        "Images/crab.png", "Images/HighFish.png", "Images/Seahorse.png", "Images/Seastar.png", "Images/Shell.png", "Images/Squid.png", "Images/Bulbfish.png", "Images/LongFish.png"]
+    })
+
+    timeline.push({
+      type: jsPsychFullscreen,
+      fullscreen_mode: true,
+      message: "<p>Click below to admit the experiment to go into fullscreen mode</p>",
+      button_label: "OK"
+    })
+
+    var days = ["first", "second", "third and last"]
+
+    if (instructions == 1){
+      timeline.push({
+        type: jsPsychInstructions,
+        pages: ["<p>Welcome to the " + days[Session-1]+ " day of this multi-day experiment!</p><p>Click on the 'Next'-button below to start.</p>",
+
+          "<b>INFORMED CONSENT</b><p>I hereby declare that I, as a participant in a study of the Department of Experimental Psychology at Ghent University, Belgium,</p><p>(1) have been " +
+          "informed about the tasks that I will encounter during this experiment;</p><p>(2) will participate in this experiment out of free will;</p><p>(3) give informed consent to the " +
+          "researchers to store, process, and report my data in anonymised form;</p><p>(4) am aware of the option to stop my participation in this experiment at any moment without having " +
+          "to provide a reason;</p><p>and (5) am aware of the option to ask the researchers for a summary of the results after the study is finished.</p><p>By clicking on the " +
+          "button below, you are confirming that you have read, and agree with, the informed consent outlined above.</p>",
+
+          "<p>In a moment, you will participate in an underwater animal fishing contest.</p> <p> A boat will bring you to different locations at sea (see left image below).</p>" +
+          "<p>When you arrived at a location you will see a new screen where you should try to catch an underwater animal (see right image below).</p>"+
+          "<p>On the top of the screen you will see a radar, telling you where you are, as well as pictures of the animal that you should catch. </p>"+
+          "<p>Importantly, you can not see where the animal is because it is hiding underneath the sand.</p>"+
+          "<p>To catch an animal, you need to move a cage until it is right above the hiding spot of the animal and then drop it.</p>"+
+          "<p>You can move the cage left and right by pressing the arrow keys on your keyboard and you can drop the cage by pressing the space bar.</p>"+
+          "<p>Once the cage is dropped, the animal will come out of its hiding spot and reveal itself.</p>"+
+          "<p>At first you will have to guess where to place your cage but quickly you will notice that each animal has its prefered hidding spot for each location.</p>"+
+          "</p><img src = 'Images/Left_1.png' style = 'width: " + target_width / 4 + "px'></img> <img src = 'Images/Right_1.png' style = 'width: " + target_width / 4 + "px'></img>",
+
+          "<b>The winner of the contest will receive a 10 pound reward on top of the regular payment for participation!</b>"+
+          "<p>However, to win the contest, you will need to show strong memory and learning skills!<br> There are 8 locations at sea and multiple underwater animals. Hence, a lot of hiding spots to remember.</p>"+
+          "<p>To give you sufficient learning opportunity, the contest is spread over multiple days. <br> Currently, we are at the "+days[Session-1]+" day of the contest.</p>"+
+          "<p>To help you a bit, there will be a radar at the top of the screen where a red dot indicates your location. <br> At the center of the radar you will also see the underwater animal that you need to catch. </p>"+
+          "<p>If you are ready to start, you can press the 'Next' button below.</p><p>Good luck!</p>"],
+        show_clickable_nav: true,
+        button_label_next: "Next",
+        button_label_previous: "Previous",
+        show_page_number: true,
+        page_label: "Page"
+      })
+    }
+
+    var pause_screen = {
+      type: jsPsychInstructions,
+      pages: function(){
+        if (Session_design[trial_number]["Round"]==4 && Session_design[trial_number]["Block"]==0){
+          return ["<b>Important information: New animals!</b>"+
+          "<p>You deserved a break.</p> <p>So far, you already caught " +catch_count+ " underwater animals!</p>"+
+          "<p><b>Importantly, for the next round, we will introduce two new fish.</b><br> You will need to learn the hiding spot of these new fish as well if you want to win the contest.</p>"+
+          "<p>If you are ready to continue with the contest you can press the button below</p><p>Good luck!</p>"]
+        }
+        else if (Session_design[trial_number]["Round"]==5 && Session_design[trial_number]["Block"]==0){
+          return ["<b>Important information:</b>"+
+          "<p>You deserved a break.</p> <p>So far, you already caught " +catch_count+ " underwater animals!</p>"+
+          "<p>Probably you noticed that we did not visit all 8 locations in the previous round with the two new animals.</p>"+
+          "<p><b>In the next round, we will visit all 8 locations but you will not receive feedback anymore.</b><br> This means that once the cage is dropped the animal will not show itself to you anymore.</p>"+
+          "<p>We will tell you at the end how many underwater animals you caught but for now, you will need to rely only on what you have already learned to place the cage as good as possible.</p>"+
+          "<p>If you are ready to continue with the contest you can press the button below</p><p>Good luck!</p>"]
+        }else{
+          return ["<p>You deserved a break.</p> <p>So far, you already caught " +catch_count+ " underwater animals!</p>"+
+          "<p>If you are ready to continue with the contest you can press the button below</p><p>Good luck!</p>"]
+        }
+      },
+      show_clickable_nav: true,
+      button_label_next: "Next",
+    }
+
+    var fixation = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function(){
+        fixation_loop_count = fixation_loop_count + 1
+        if (fixation_loop_count == 1){
+          target_angle = 0
+          if (Session_design[trial_number]["Trial"]== 0){
+            fixation_angle = Session_design[trial_number]["Loc_angle"]
+            previous_fixation_angle = fixation_angle - 90
+            boat_x_coord = screen.width / 2 + fixation_radius * Math.cos(previous_fixation_angle * Math.PI / 180) - boat_width / 2
+            boat_y_coord = screen.height / 2 + fixation_radius * -Math.sin(previous_fixation_angle * Math.PI / 180) - 0.619 * boat_width / 2
+          } else {
+            previous_fixation_angle = fixation_angle
+            fixation_angle =  Session_design[trial_number]["Loc_angle"]
+          }
+          if (fixation_angle - previous_fixation_angle > 0 && fixation_angle - previous_fixation_angle <= 180){
+            direction = 0
+          } else if (fixation_angle - previous_fixation_angle > 180){
+            direction = 1
+          } else if (fixation_angle - previous_fixation_angle < 0 && fixation_angle - previous_fixation_angle > -180){
+            direction = 1
+          } else {
+            direction = 0
+          }
+        } else if (fixation_loop_count > 20 && fixation_loop_count <=100){
+            if (direction == 0){
+              if (previous_fixation_angle == 360){
+                previous_fixation_angle = 0
+              }
+              previous_fixation_angle = previous_fixation_angle + 5
+            } else {
+              previous_fixation_angle = previous_fixation_angle - 5
+              if (previous_fixation_angle == 0){
+                previous_fixation_angle = 360
+              }
+            }
+            if (previous_fixation_angle != fixation_angle){
+              boat_x_coord = screen.width / 2 + fixation_radius * Math.cos(previous_fixation_angle * Math.PI / 180) - boat_width / 2
+              boat_y_coord = screen.height / 2 + fixation_radius * -Math.sin(previous_fixation_angle * Math.PI / 180) - 0.619 * boat_width / 2
+            } else {
+              fixation_loop_count = 100
+              boat_x_coord = screen.width / 2 + fixation_radius * Math.cos(fixation_angle * Math.PI / 180) - boat_width / 2
+              boat_y_coord = screen.height / 2 + fixation_radius * -Math.sin(fixation_angle * Math.PI / 180) - 0.619 * boat_width / 2
+            }
+          }else if (fixation_loop_count >=180){
+            boat_x_coord = screen.width / 2 + fixation_radius * Math.cos(fixation_angle * Math.PI / 180) - boat_width / 2
+            boat_y_coord = screen.height / 2 + fixation_radius * -Math.sin(fixation_angle * Math.PI / 180) - 0.619 * boat_width / 2
+          }
+        output = "<img src = 'Images/Fixation.png' style = 'width: " + target_width + "px; position: fixed; left: 0px; top: 0px'></img>"
+        output = output + "<img src = 'Images/Boat.png' style = 'width: " + boat_width + "px; position: fixed; left: " + boat_x_coord + "px; top: " + boat_y_coord + "px'></img>"
+        return output
+      },
+      choices: ["NO_KEYS"],
+      trial_duration: 25
+    }
+
+    var fixation_loop = {
+      timeline: [fixation],
+      loop_function: function(){
+        if (fixation_loop_count == 120){
+          fixation_loop_count = 0
+          return false
+        } else {
+          return true
+        }
+      }
+    }
+
+    var fixation_conditional = {
+      timeline: [fixation_loop],
+      conditional_function: function () {
+        if (Session_design[trial_number]["Novel_location"]){
+          return true
+        }else{
+          return false
+        }
+      }
+    }
+
+    var target = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function(){
+        animal = Session_design[trial_number]["Stimulus"];
+        target_loop_count = target_loop_count + 1
+        if (target_loop_count == 1){
+          cage_y_coord = screen.height * 0.32
+          dot_x_coord = screen.width / 2 + target_radius * Math.cos(fixation_angle * Math.PI / 180) - dot_width / 2
+          dot_y_coord = 0.165 * screen.height + target_radius * -Math.sin(fixation_angle * Math.PI / 180) - dot_width / 2
+          cage_x_coord = screen.width / 2 - cage_width / 2
+          cage_location = 50
+          end_target_loop = 0
+          if (testing_mode ==1){
+            response_time = 200
+            target_loop_count = 0
+            feedback_loop_count = 0
+            end_target_loop = 1
+            register_responses = 0
+          }else{
+            register_responses = 1
+          }
+          presentation_time = new Date().getTime()
+        }
+
+        output = "<img src = 'Images/Target.png' style = 'width: " + target_width + "px; position: fixed; left: 0px; top: 0px'></img>" +
+          "<img src = 'Images/Cage.png' style = 'width: " + cage_width + "px; position: fixed; left: " + cage_x_coord + "px; top: " + cage_y_coord + "px'></img>"+
+          "<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_show[0] + "px; bottom: " + animal_y_show + "px'></img>"+
+          "<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_show[1] + "px; bottom: " + animal_y_show + "px'></img>"+
+          "<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_show[2] + "px; bottom: " + animal_y_show + "px'></img>"+
+          "<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_show[3] + "px; bottom: " + animal_y_show + "px'></img>"
+        output = output + lineDraw()
+        if ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].includes(target_loop_count % 24)){
+          output = output + "<img src = 'Images/Dot.png' style = 'width: " + dot_width + "px; position: fixed; left: " + dot_x_coord + "px; top: " + dot_y_coord + "px'></img>"
+        }
+        return output
+      },
+      choices: ["ArrowLeft", "ArrowRight", " "],
+      trial_duration: 15,
+      response_ends_trial: false
+    }
+
+    var process_responses = function(info){
+      if (register_responses == 1){
+        if (jsPsych.pluginAPI.compareKeys(info.key, " ")){
+          response_time = new Date().getTime() - presentation_time
+          target_loop_count = 0
+          feedback_loop_count = 0
+          end_target_loop = 1
+          register_responses = 0
+        } else if (jsPsych.pluginAPI.compareKeys(info.key, "ArrowLeft")){
+          cage_x_coord = cage_x_coord - 0.02 * screen.width
+          cage_location = cage_location - 2
+        } else if (jsPsych.pluginAPI.compareKeys(info.key, "ArrowRight")){
+          cage_x_coord = cage_x_coord + 0.02 * screen.width
+          cage_location = cage_location + 2
+        }
+        if (cage_x_coord < 0){
+          cage_x_coord = 0
+          cage_location = 0
+        }
+        if (cage_x_coord > screen.width - cage_width){
+          cage_x_coord = screen.width - cage_width
+          cage_location = 100
+        }
+      }
+    }
+
+    var response_listener = jsPsych.pluginAPI.getKeyboardResponse({
+        callback_function: process_responses,
+        valid_responses: ["ArrowLeft", "ArrowRight", " "],
+        allow_held_key: true,
+        persist: true
+    })
+
+    var target_loop = {
+      timeline: [target],
+      loop_function: function(){
+        if (end_target_loop == 1){
+          return false
+        } else {
+          return true
+        }
+      }
+    }
+
+    var feedback = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function(){
+        var animal = Session_design[trial_number]["Stimulus"];
+        feedback_loop_count = feedback_loop_count + 1
+        if (feedback_loop_count == 31){
+          var animal_location= Session_design[trial_number]["Screen_x_coord"]
+          animal_x_coord = animal_location - animal_width / 2
+          heap_x_coord = animal_location - heap_width / 2
+        }
+        if (feedback_loop_count <= 60){
+          cage_y_coord = cage_y_coord + 0.0085 * screen.height
+          if (feedback_loop_count > 40){
+            if (animal_x_coord + animal_width / 2 <= cage_x_coord){
+              animal_x_coord = animal_x_coord - 0.05 * animal_width
+            }else if (animal_x_coord + animal_width / 2 > cage_x_coord){
+              animal_x_coord = animal_x_coord + 0.05 * animal_width
+            }
+          }
+        } else {
+          if (feedback_loop_count == 61){
+            animals_caught = 0
+          }
+          if (animal_x_coord + animal_width / 2 <= cage_x_coord){
+            animal_x_coord = animal_x_coord - 0.3 * animal_width
+          } else if (animal_x_coord + animal_width / 2 >= cage_x_coord + cage_width){
+            animal_x_coord = animal_x_coord + 0.3 * animal_width
+          } else {
+            if (feedback_loop_count == 61){
+              animals_caught = animals_caught + 1
+            }
+          }
+        }
+        output = 	"<img src = 'Images/Feedback.png' style = 'width: " + feedback_width + "px; position: fixed; left: 0px; top: 0px'></img>"+
+                  	"<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_show[0] + "px; bottom: " + animal_y_show + "px'></img>"+
+          			"<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_show[1] + "px; bottom: " + animal_y_show + "px'></img>"+
+          			"<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_show[2] + "px; bottom: " + animal_y_show + "px'></img>"+
+          			"<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_show[3] + "px; bottom: " + animal_y_show + "px'></img>"
+        output = output + lineDraw()
+        if ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].includes(feedback_loop_count % 24)){
+          output = output + "<img src = 'Images/Dot.png' style = 'width: " + dot_width + "px; position: fixed; left: " + dot_x_coord + "px; top: " + dot_y_coord + "px'></img>"
+        }
+        if (feedback_loop_count > 30 && Session_design[trial_number]["Round"]!=5){
+            output = output + "<img src = 'Images/Heap.png' style = 'width: " + heap_width + "px; position: fixed; left: " + heap_x_coord + "px; bottom: " + heap_y_coord + "px'></img>"
+            output = output + "<img src= "+animal+" style = 'width: " + animal_width + "px; position: fixed; left: " + animal_x_coord + "px; bottom: " + animal_y_coord + "px'></img>"
+        }
+        output = output + "<img src = 'Images/Cage.png' style = 'width: " + cage_width + "px; position: fixed; left: " + cage_x_coord + "px; top: " + cage_y_coord + "px'></img>"
+        return output
+      },
+      choices: ["NO_KEYS"],
+      trial_duration: 15,
+      on_finish: function(data){
+        if (feedback_loop_count == 100){
+          catch_count = catch_count + animals_caught
+          data.trial_index = trial_number
+          data.relevant = 1
+          data.online = online
+          data.block = Session_design[trial_number]["Block"]
+          data.round = Session_design[trial_number]["Round"]
+          data.locationID = Session_design[trial_number]["Loc"]
+          data.locationScreen = Session_design[trial_number]["Loc_angle"]
+          data.StimID = Session_design[trial_number]["Stimulus_id"]
+          data.StimImage = Session_design[trial_number]["Stimulus"]
+          data.coordID = Session_design[trial_number]["Target_x_coord"]
+          data.coordScreen = Session_design[trial_number]["Screen_x_coord"]
+          data.respID = cage_location/100
+          data.rt = response_time
+          data.reward = animals_caught
+          trial_number = trial_number + 1
+        }
+      }
+    }
+    var pause_conditional = {
+      timeline: [pause_screen],
+      conditional_function: function () {
+        if (Session_design[trial_number]["Break_required"]){
+          return true
+        }else{
+          return false
+        }
+      }
+    }
+
+    var feedback_loop = {
+      timeline: [feedback],
+      repetitions: 100
+    }
+
+    trial_loop = {
+      timeline: [pause_conditional, fixation_conditional, target_loop, feedback_loop],
+      repetitions: Session_design.length
+    }
+
+    timeline.push({
+      timeline: [trial_loop],
+      repetitions: 1
+    })
+	
+	var saving = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<p> Your data is being saved, this will take one second </p>",
+      choices: ["NO_KEYS"],
+      trial_duration: 10,
+      on_finish: function(){
+      	var filename = "Behavioural_Data_" + ppID +"_Session_"+Session+"_Score_"+catch_count+".csv"
+        var filedata = jsPsych.data.get().filter({relevant: 1})
+        console.log(online)
+        console.log(filedata)
+        if (online==1){
+        	saveData(filename, filedata.csv())
+        	console.log('file saved')
+        } else {
+        	filedata.localSave('csv',filename);
+        }
+      }
+    }
+	
+	timeline.push({
+		timeline: [saving], 
+		repetitions: 1
+	})
+	
+    timeline.push({
+        type: jsPsychFullscreen,
+        fullscreen_mode: false,
+        message: "You finished this session, click on the button below to exit the fullscreen mode.",
+        button_label: 'Finish the experiment'
+    })
+
+    timeline.push({
+      type: jsPsychInstructions,
+      pages: function(){
+        if (Session < 3){
+          return [`<p>You reached the end of this day.<p></p>Today, you caught no less than ${catch_count} underwater animals!</p>
+          <p>Luckily no real animals were harmed in the contest ;) </p>
+          <p>Keep in mind that you should complete all sessions on three consecutive days to receive your payment and be elligible for the price.</p>
+          <p>So, see you again tomorrow!</p>
+          <p>To sucesfully end this session, please <a href="https://app.prolific.co/submissions/complete?cc=XXXXXXX">click here </a>.</p> to return to prolific.</p>`]
+        }else{
+          return [`<p>You reached the end of this day.<p></p>Today, you caught no less than ${catch_count} underwater animals!</p>
+          <p>Luckily no real animals were harmed in the contest ;) </p>
+          <p>You sucesfully completed all three sessions! </p>
+          <p>Later, we will inform the contestant who caught most animals. <br> Of course, it can take some time until all participants are finished and you can receive the price</p>
+          <p>To sucesfully end this session, please <a href="https://app.prolific.co/submissions/complete?cc=XXXXXXX">click here </a>.</p> to return to prolific.</p>`]
+        }
+      }
+    })
+    jsPsych.run(timeline)
+  </script>
+</html>
