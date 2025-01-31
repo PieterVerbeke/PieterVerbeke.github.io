@@ -1,0 +1,70 @@
+body {
+    font-family: 'Fauna One', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: #FFEBCD;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #F0FFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #313131;
+}
+
+h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #313131;
+    margin-top: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.tags {
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+ul, ol {
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #EF525B;
+}
+
+.article-container {
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+}
