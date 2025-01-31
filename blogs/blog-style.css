@@ -77,6 +77,10 @@ strong {
     }
 }
 
+/*************************************************
+*  Navigation Bar
+**************************************************/
+
 .navbar {
     min-height: 70px !important;
     }
@@ -288,3 +292,25 @@ strong {
       display: block !important;
     }
     }
+    
+    .social-icons a {
+      display: inline-block;
+      height: 3.5rem;
+      width: 3.5rem;
+      background-color: #FFEBCD;
+      color: #fff !important;
+      border-radius: 100%;
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 3.5rem;
+      margin-right: 1rem;
+    }
+    
+    .social-icons a:last-child {
+      margin-right: 0;
+    }
+    
+    .social-icons a:hover {
+      background-color: #d9ca2e;
+    }
+    
