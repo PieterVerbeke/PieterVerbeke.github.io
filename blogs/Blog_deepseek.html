@@ -8,40 +8,64 @@
     <link rel="stylesheet" href="css/Theme.css">
 </head>
 
-<body>
+<body id="pagetop" style = "background-color:#FFEBCD;>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="sideNav" style="min-height: 75px; padding-left:50px; padding-top: 15px; background-color:#CD5C5C;">
+      <a class="navbar-brand" href=#pagetop>
+        <span class="d-block d-lg-none">Pieter Verbeke</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" style="color: #FFFFFF;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Academic work.html" style="color: #FFFFFF;">Academic work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Applied projects.html" style="color: #FFFFFF;">Applied projects</a>
+          </li>
+          <li class="nav-item active"><a class="nav-link" href="Professional experience.html">Professional experience</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="container" style = "background-color:#FFEBCD;>
-        <header>
-            <h1>The Future of AI: Modularity and Hierarchy as Key Principles for Efficient (Artificial) Intelligence</h1>
-            <p class="tags">#AI #CognitiveScience #Modularity #HierarchicalProcessing #MixtureOfExperts</p>
-        </header>
+        <h3 style = "color:inherit; text-align:center; padding-top: 125px;>The Future of AI: Modularity and Hierarchy as Key Principles for Efficient (Artificial) Intelligence</h1>
+        <p class="tags">#AI #CognitiveScience #Modularity #HierarchicalProcessing #MixtureOfExperts</p>
 
         <article>
             <p><strong>"Attention is all you need."</strong> That was the title of the paper proposing the algorithm behind the massive breakthrough in generative AI. However, as both humans and AI researchers have realized, paying attention requires energy.</p>
             
             <p>Until recently, the dominant approach in AI was to tackle this challenge brute-force by simply increasing computational power. Then came DeepSeek, a new open-source chatbot from China that has gained attention for its remarkable efficiency. A key factor in DeepSeek’s success is its reliance on a <strong>Mixture of Experts (MoE)</strong> architecture, an approach that delivers impressive performance while significantly reducing computational costs.</p>
             
-            <h2>What Makes MoE So Powerful?</h2>
+            <h5>What Makes MoE So Powerful?</h5>
             <p>Imagine solving a complex problem by assembling a team of specialists, each with expertise in a specific domain. This is the essence of MoE. Instead of relying on a single massive model to handle every aspect of a problem, MoE distributes tasks among multiple specialized networks (experts). A gating network then routes input to the most relevant expert(s) for efficient processing.</p>
             
-            <h3>Advantages of MoE:</h3>
+            <p>Advantages of MoE:</p>
             <ul>
                 <li><strong>Efficiency:</strong> Instead of activating all model parameters for every task, only the relevant experts are used, significantly reducing computational costs.</li>
                 <li><strong>Scalability:</strong> More experts can be added to address new problems without dramatically increasing resource demands.</li>
                 <li><strong>Task-Specific Precision:</strong> Each expert specializes in a particular domain, enhancing accuracy and adaptability.</li>
             </ul>
 
-            <h2>How Understanding the Brain Can Help Us Build Better AI</h2>
+            <h5>How Understanding the Brain Can Help Us Build Better AI</h5>
             <p>As a cognitive neuroscientist turned AI researcher, I find these developments particularly exciting because they align with what we know about human intelligence. Transformer models like ChatGPT already borrow concepts from cognitive science, particularly attention mechanisms. However, DeepSeek’s MoE architecture further reinforces what we argued in a recent paper: efficient intelligence requires two key principles—<strong>hierarchy and modularity</strong>.</p>
             
             <p>Modularity breaks down complex problems into smaller, manageable components, while hierarchy allows for flexible recombination of these modules when needed. These principles not only form the foundation of MoE but also underpin human learning and brain function.</p>
 
-            <h3>Implications for the Future of AI</h3>
+            <h5>Implications for the Future of AI</h5>
             <ol>
                 <li><strong>More Efficient AI Models</strong> – By adopting modular and hierarchical architectures, AI can achieve greater efficiency, making large-scale models more accessible and sustainable.</li>
                 <li><strong>Improved Human-AI Interaction</strong> – AI systems that mimic human cognition will be more transparent, interpretable, and adaptable to user needs.</li>
             </ol>
 
-            <h2>Bridging the Gap Between AI and Neuroscience</h2>
+            <h5>Bridging the Gap Between AI and Neuroscience</h5>
             <p>My transition from cognitive neuroscience to applied AI research has reinforced a fundamental message: the best AI models often mirror human intelligence. DeepSeek’s MoE architecture is a step in this direction, proving that AI can benefit from the same principles of hierarchy and modularity that enable human learning and adaptation.</p>
             
             <p>As AI continues to advance, we should not only focus on how it can assist us but also on how studying human cognition can inspire better AI. The interplay between these two fields holds the key to the next generation of intelligent systems—ones that are not just powerful but also intuitive, efficient, and deeply aligned with human needs.</p>
