@@ -298,6 +298,9 @@ font-size: 1.1rem;
 color: #b2b2b2;
 }
 
+.container-fluid {
+  background-color: #FFEBCD !important;
+}
 /*************************************************
 *  Blog Articles
 **************************************************/
