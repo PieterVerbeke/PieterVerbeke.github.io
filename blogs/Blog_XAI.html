@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explainable AI - Blog Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ec75bccfcd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="blog-style.css">
+</head>
+
+<body id="pagetop">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="sideNav" style="min-height: 75px; padding-left:50px; padding-top: 15px; background-color:#CD5C5C;">
+      <a class="navbar-brand" href=#pagetop>
+        <span class="d-block d-lg-none">Pieter Verbeke</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color: #FFFFFF;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Academic work.html" style="color: #FFFFFF;">Academic work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Applied projects.html" style="color: #FFFFFF;">Applied projects</a>
+          </li>
+          <li class="nav-item active"><a class="nav-link" href="../Professional experience.html">Professional experience</a></li>
+          <li class="nav-item active"><a class="nav-link" href="../Blogs.html">Blogs</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" style="background-color:#FFEBCD;">
+        <h1 style = "color:inherit; text-align:center; padding-top: 125px;">Beyond Accuracy: Why Explainability is the Next Frontier for AI</h1>
+        <p class="tags">#AI #ExplainableAI #Neuroscience #MachineLearning</p>
+
+        <article>
+            <h3>Why Accuracy is not enough</h3>
+            <p>Artificial intelligence has made incredible advances in recent years, with models achieving remarkable accuracy in tasks ranging from image recognition to language processing. But accuracy alone isn’t enough. As AI becomes more embedded in critical areas like healthcare, and self-driving cars, <strong>users and developers need to understand why an AI system makes certain decisions.</strong></p>
+            <p>AI-systems are traditionally seen as a "black box” —a system that takes inputs and produces outputs, but whose inner workings remain a mystery. However, as a cognitive neuroscience researcher, I've worked with systems that hold even more parameters than most AI models: the human brain. The same computational techniques developed to understand how the brain processes information have proven valuable in making AI more explainable. This highlights how methods developed in one field (e.g., neuroscience) can also be applied to gain insights into another (e.g., AI).</p>
+        
+            <h2><strong>Understanding AI through Representational Similarity Analysis (RSA)</strong></h2>
+        
+            <p>One powerful technique borrowed from neuroscience is Representational Similarity Analysis (RSA). Originally designed to compare neural representations in the brain, RSA can also be used to analyze AI models. It works by comparing patterns of activity across different conditions. Naturally, one would assume that activity within the system is more similar for related concepts (e.g., dog and cat) than for unrelated concepts (e.g., dog and bike).</p>
+        
+            <h3>How RSA helps explain AI</h3>
+
+            <ol>
+                <li><strong>Comparing AI with Human Cognition:</strong> RSA allows us to investigate whether AI encodes information in a way that mirrors human cognitive processes. For instance, we can explore if a vision model clusters objects similarly to the human visual cortex. As shown in the image below, the AI model often reflects patterns that align closely with how the brain processes visual information.</li>
+                <li><strong>Debugging and Improving AI Models:</strong> If an AI model inaccurately clusters semantically unrelated concepts (e.g., dog and bike), RSA can highlight these discrepancies. These insights guide developers in refining the model’s architecture and training process, ultimately improving its accuracy and efficiency.</li>
+            </ol>
+            
+            <div class="figure-container">
+                <p><strong>Figure 1:</strong> Example of RSA-matrix from human brain (left) and AI model (right)</p>
+                <img src="img/Fig1_XAI.png" alt="AI vs Human Cognition">
+            </div>
+        
+            <h2><strong>Dimensionality Reduction: Revealing Hidden Structure in AI</strong></h2>
+        
+            <p>Another key technique in both neuroscience and AI is dimensionality reduction, which simplifies complex data by identifying the most meaningful patterns. This is crucial because both the brain and AI models process information in high-dimensional spaces (i.e., they have a vast number of parameters). However, humans are generally limited to interpreting visualizations in 3D or 4D (if considering time), making it challenging to grasp structures in data with more than four dimensions. <strong>Dimensionality reduction helps bridge this gap by projecting complex data into a more comprehensible form without losing essential information.</strong></p>
+        
+            <p>In one of my own studies, we examined how various AI models represented digit classification tasks (e.g., distinguishing even vs. odd numbers, or greater than vs. smaller than five). We compared two models:</p>
+            <ol>
+                <li>Models treating task information as a generic input signal</li>
+                <li>Models implementing attentional gating, inspired by human brain mechanisms</li>
+            </ol>
+        
+            <p>As shown in the image below, the attentional gating approach led to more meaningful structure in task representations. Such clear visualization is only possible because of dimensionality reduction.</p>
+            
+            <div class="figure-container">
+                <p><strong>Figure 2:</strong> Example of how dimensionality reduction allows to evaluate structure in AI models</p>
+                <img src="img/Fig2_XAI.png" alt="Dimensionality Reduction in AI"> 
+            </div>
+        
+            <h2><strong>Explainability for AI Users</strong></h2>
+        
+            <p>While RSA and dimensionality reduction mainly help developers, Explainable AI is also crucial for AI users. A key challenge in real-world AI applications is <strong>making model decisions more interpretable</strong>. AI’s ability to make accurate predictions is only useful if humans can understand and trust those predictions.</p>
+        
+            <h3>Techniques for End-User Explainability</h3>
+            
+            <ul>
+                <li><strong>Confidence Scores: </strong>AI models can provide insight into their confidence level regarding a prediction. For example, when classifying an image as a cat, a model might assign a 95% confidence score, indicating a high level of certainty. Lower confidence scores alert users to potential errors or uncertain predictions.</li>
+                <li><strong>Confusion Metrics: </strong>These metrics assess a model's performance by showing how frequently it misclassifies one category as another. In the case of self-driving cars, it may be less concerning if a model occasionally confuses a red traffic light with a stop sign, compared to confusing a red light with a green one. Both systems may have the same accuracy, but the latter presents a much more critical reliability issue.</li>
+                <li><strong>SHAP (Shapley Additive Explanations): </strong>A widely used toolbox, SHAP provides values that help explain which features most influenced a model’s output. For example, in a medical diagnosis model, SHAP can highlight whether symptoms, test results, or patient history had the most impact on the decision. By computing the contributions of each feature, SHAP makes AI decision-making more transparent, offering interpretability in fields like healthcare, scientific research, and automated decision-support systems.</li>
+                <li><strong>LIME (Local Interpretable Model-agnostic Explanations):</strong>LIME is another popular method that allows to determine which features are most influential in model decisions. It is particularly useful for explaining complex machine learning models without requiring changes to their architecture.</li>
+                <li><strong>Counterfactual Explanations:</strong> Instead of explaining why an AI made a decision, counterfactuals show what would have needed to change for a different outcome. For example, in a healthcare setting, a diagnostic AI might explain its decision by stating: “If the patient's cholesterol level were lower, the risk assessment would have changed.” This approach makes AI decision-making more actionable for medical professionals and patients.</li>
+              </ul>
+            <div class="figure-container">
+                <p><strong>Figure 3:</strong> Visualization of Explainable AI via SHAP toolbox.</p>
+                <img src="img/Fig3_XAI.jpeg" alt="SHAP explanation for AI decision-making">
+            </div>
+        
+            <h2><strong>Conclusion</strong></h2>
+        
+            <p>For too long, AI research has focused on improving accuracy. However, a high-performing AI model that users don’t understand is not truly useful. Transparency, interpretability, and trust are just as critical as accuracy, if not more so.</p>
+            <p><strong>Humans are at the core of AI development—not only as its creators but also as its primary users</strong>. Our own intelligence provides a blueprint for designing AI, but AI systems must ultimately be tailored to our needs. Making AI less of a black box isn’t just about trust—it’s about creating models that are more interpretable, accountable, and ultimately, more effective.</p>
+        </article>
+    </div>
+</body>
+</html>

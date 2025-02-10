@@ -313,3 +313,10 @@ background-color: transparent;
 .social-icons a:hover {
     background-color: #d9ca2e;
 }
+
+.figure-container img {
+    display: block;
+    margin: 0 auto; /* Ensures horizontal centering */
+    max-width: 89%; /* Adjust this percentage as needed */
+    height: auto;
+}
