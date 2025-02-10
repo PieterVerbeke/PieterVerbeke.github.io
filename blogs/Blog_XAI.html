@@ -62,7 +62,7 @@
             </ol>
             
             <div class="figure-container">
-                <p><strong>Figure 1:</strong> Example of RSA-matrix from human brain (left) and AI model (right)</p>
+                <p><strong>Figure 1:</strong> Example of RSA-matrix from human brain (left) and AI model (right). Taken from <a href ="https://www.nature.com/articles/s41467-021-22244-7"> Xu & Vaziri-Pashkam, 2021 in Nat. Comm.</a></a></p>
                 <img src="img/Fig1_XAI.png" alt="AI vs Human Cognition">
             </div>
         
@@ -70,7 +70,7 @@
         
             <p>Another key technique in both neuroscience and AI is dimensionality reduction, which simplifies complex data by identifying the most meaningful patterns. This is crucial because both the brain and AI models process information in high-dimensional spaces (i.e., they have a vast number of parameters). However, humans are generally limited to interpreting visualizations in 3D or 4D (if considering time), making it challenging to grasp structures in data with more than four dimensions. <strong>Dimensionality reduction helps bridge this gap by projecting complex data into a more comprehensible form without losing essential information.</strong></p>
         
-            <p>In one of my own studies, we examined how various AI models represented digit classification tasks (e.g., distinguishing even vs. odd numbers, or greater than vs. smaller than five). We compared two models:</p>
+            <p><a href ="https://doi.org/10.1016/j.neunet.2021.11.030">In one of my own studies</a>, we examined how various AI models represented digit classification tasks (e.g., distinguishing even vs. odd numbers, or greater than vs. smaller than five). We compared two models:</p>
             <ol>
                 <li>Models treating task information as a generic input signal</li>
                 <li>Models implementing attentional gating, inspired by human brain mechanisms</li>
@@ -92,7 +92,7 @@
             <ul>
                 <li><strong>Confidence Scores: </strong>AI models can provide insight into their confidence level regarding a prediction. For example, when classifying an image as a cat, a model might assign a 95% confidence score, indicating a high level of certainty. Lower confidence scores alert users to potential errors or uncertain predictions.</li>
                 <li><strong>Confusion Metrics: </strong>These metrics assess a model's performance by showing how frequently it misclassifies one category as another. In the case of self-driving cars, it may be less concerning if a model occasionally confuses a red traffic light with a stop sign, compared to confusing a red light with a green one. Both systems may have the same accuracy, but the latter presents a much more critical reliability issue.</li>
-                <li><strong>SHAP (Shapley Additive Explanations): </strong>A widely used toolbox, SHAP provides values that help explain which features most influenced a model’s output. For example, in a medical diagnosis model, SHAP can highlight whether symptoms, test results, or patient history had the most impact on the decision. By computing the contributions of each feature, SHAP makes AI decision-making more transparent, offering interpretability in fields like healthcare, scientific research, and automated decision-support systems.</li>
+                <li><strong>SHAP (Shapley Additive Explanations): </strong>A widely used toolbox, <a href = "https://shap.readthedocs.io/en/latest/">SHAP </a>provides values that help explain which features most influenced a model’s output. For example, in a medical diagnosis model, SHAP can highlight whether symptoms, test results, or patient history had the most impact on the decision. By computing the contributions of each feature, SHAP makes AI decision-making more transparent, offering interpretability in fields like healthcare, scientific research, and automated decision-support systems.</li>
                 <li><strong>LIME (Local Interpretable Model-agnostic Explanations):</strong>LIME is another popular method that allows to determine which features are most influential in model decisions. It is particularly useful for explaining complex machine learning models without requiring changes to their architecture.</li>
                 <li><strong>Counterfactual Explanations:</strong> Instead of explaining why an AI made a decision, counterfactuals show what would have needed to change for a different outcome. For example, in a healthcare setting, a diagnostic AI might explain its decision by stating: “If the patient's cholesterol level were lower, the risk assessment would have changed.” This approach makes AI decision-making more actionable for medical professionals and patients.</li>
               </ul>
