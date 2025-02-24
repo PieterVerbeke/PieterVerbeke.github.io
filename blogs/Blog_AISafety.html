@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explainable AI - Blog Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ec75bccfcd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="blog-style.css">
+</head>
+
+<body id="pagetop">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="sideNav" style="min-height: 75px; padding-left:50px; padding-top: 15px; background-color:#CD5C5C;">
+      <a class="navbar-brand" href=#pagetop>
+        <span class="d-block d-lg-none">Pieter Verbeke</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color: #FFFFFF;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Academic work.html" style="color: #FFFFFF;">Academic work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Applied projects.html" style="color: #FFFFFF;">Applied projects</a>
+          </li>
+          <li class="nav-item active"><a class="nav-link" href="../Professional experience.html">Professional experience</a></li>
+          <li class="nav-item active"><a class="nav-link" href="../Blogs.html">Blogs</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" style="background-color:#FFEBCD;">
+        <h1 style = "color:inherit; text-align:center; padding-top: 125px;">AI Safety in Focus: Insights from the International Scientific Report on the Safety of Advanced AI</h1>
+        <p class="tags">#AISafety #EUAIACT #EthicalAI #Cybersecurity #GenerativeAI</p>
+
+        <article>
+            <h3>A Global Effort to Address AI Risks</h3>
+            <p>Artificial Intelligence has been advancing since the 1950s, but the rapid development of generative AI has triggered a revolution in AI adoption and societal integration. While businesses explore AI's vast opportunities, valid concerns are raised about its ethical, social, and safety implications.</p>
+            <p>The <a href = https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence> EU AI Act </a>attempted to address these concerns but is of course restricted to the EU and arguably remains superficial on some topics. Recently, nearly 100 independent scientists collaborated on <a href = https://arxiv.org/abs/2501.17805>the International Scientific Report on the Safety of Advanced AI </a>, offering an in-depth exploration of global AI risks, mitigations, and policy gaps.</p>
+            <p>For this blog post, I selected several key risks and briefly describe how they are addressed in the AI safety report and the EU AI Act. If some of these topics trigger you, the links above can lead you to the full report(s).</p>
+            
+            <h2><strong>1. Fake Content & Disinformation: Safeguarding Truth in the AI Era</strong></h2>
+            <p>Generative AI systems can produce deepfakes, fake news, and manipulated images that blur the line between reality and fiction. Large-scale AI-driven disinformation campaigns can undermine democratic processes and public trust. Indeed, fake AI content is one of the <a href =https://incidentdatabase.ai/ >most frequently reported misuse of AI </a></p>
+            <p>The EU AI Act acknowledges this risk and requires the declaration of AI use when posting content, but enforcing this at scale is challenging. Although there is <a href = https://digital-strategy.ec.europa.eu/en/library/code-conduct-disinformation >a clear vision on the battle against disinformation</a>, stronger global regulations are needed to prevent AI-driven manipulation. It is clear from both reports that we will never be able to fully eliminate misinformation in the current digital world. Therefore, media literacy initiatives will be crucial to educate users on identifying fake content.</p> 
+        
+            <h2><strong>2. Reliability, Bias & Fairness: Ensuring Trustworthy AI Decisions</strong></h2>
+            <p>When using AI to assist decision-making, it's critical to be aware of potential biases, especially in domains like healthcare, HR, and justice. AI models trained on biased data can lead to discrimination and unfair or incorrect outcomes.</p>
+            <p>The EU AI Act addresses these biases through a risk classification system. In high-risk domains like healthcare and justice, AI applications require mitigation strategies, human oversight, and must demonstrate robustness. However, the act lacks detailed guidelines on bias auditing and transparency.</p>
+            <p>The AI Safety Report stresses that audits and monitoring should be conducted by interdisciplinary teams combining technical and societal expertise. Bias should primarily be addressed during training by using diverse datasets that generalize well to real-world scenarios. Post-training, post-processing techniques can help adjust biased outputs.</p>
+        
+            <h2><strong>3. Societal Gaps & Inequality: AI's Role in Widening Divides</strong></h2>
+            <p>A critical concern raised in the safety report is that concentrated AI development among tech giants risks increasing global inequality. The AI R&D divide could leave lower-income countries behind, deepening economic and social gaps. This divide isn’t limited to differences between countries—it also affects companies and individuals within countries, further increasing the already existing digital gap.</p>
+            <p>While the EU AI Act advocates for inclusive innovation, its guidance remains restricted to the EU.</p>
+            <p>To mitigate AI-driven inequality, it’s crucial to:</p>
+            <ol>
+                <li>Promote open-source AI projects to democratize access.</li>
+                <li>Develop clear policy frameworks to support equitable AI distribution.</li>
+                <li>Implement educational programs to build AI literacy in underrepresented regions and communities.</li>
+            </ol>
+
+            <h2><strong>4. Privacy Concerns: Navigating AI’s Data Hunger</strong></h2>
+            <p>AI systems often require vast datasets, leading to the phrase “data is the new gold/oil.” This data hunger raises serious privacy concerns. The EU AI Act remains largely silent on data privacy, deferring to the GDPR. However, the AI Safety Report highlights risks like data leaks, inferred data misuse, and non-consensual data scraping—issues that the GDPR doesn’t fully address.</p>
+            <p>On top of mitigation strategies like enhancing user control over data through transparent consent mechanisms, the AI safety report also points to employing federated learning techniques that allow models to train without centralizing data. Furthermore, we should also invest in developing data-efficient training methods to reduce the amount of data required for high-performance AI systems and reduce its hunger.</p>
+
+            <h2><strong>5. Loss of Control: The Singularity Question</strong></h2>
+            <p>Public concern over loss of control—especially with autonomous systems like self-driving cars—is widespread. Some even speculate about the risk of singularity, where AI surpasses human intelligence and control.</p>
+            <p>Though singularity remains speculative, the AI Safety Report emphasizes the need for:</p>
+            <ol>
+                <li>Designing AI with human-in-the-loop frameworks</li>
+                <li>Developing robust oversight mechanisms.</li>
+                <li>Investing in AI alignment research to ensure AI systems align with human values and goals.</li>
+            </ol>
+
+            <h2><strong>6. Cybersecurity Threats: AI as a Double-Edged Sword</strong></h2>
+            <p>Another risk are sophisticated AI-driven cyberattacks. The AI Safety Report highlights threats like AI-driven malware, phishing, and deepfake scams. While the EU AI Act acknowledges cybersecurity risks, it lacks specific safeguards.</p>
+            <p>Although cybersecurity is beyond my expertise, people interested in this topic should definitely contact my research group <a href = https://www.cyber3lab.be/>Cyber3Lab</a> where multiple researchers are actively researching the intersection of AI and cybersecurity. Because AI is of course not only a threat to cybersecurity but can also be a helpful tool.</p>
+
+            <h2><strong>Open-Weight Models: Transparency vs. Safety</strong></h2>
+            <p>An interesting debate in the AI community revolves around open-weight models. While science, generally encourages transparency as it enables peer review and bias detection, making sophisticated AI models openly available can also lead to misuse, such as creating deepfakes or malware.</p>
+            <p>The EU AI Act hasn’t yet provided clear guidelines on open-weight models. The AI Safety Report advocates for a balanced approach—promoting transparency while implementing robust safety measures to prevent misuse.</p>
+
+            <h2><strong>Toward Safer, More Transparent AI</strong></h2>
+            <p>The International Scientific Report on the Safety of Advanced AI is a wake-up call. While the EU AI Act makes strides, significant gaps remain in addressing AI’s complex risks.</p>
+            <p>Although some adaptations can be made on the technology of the AI models themselves, most ethical and safety issues can be addressed by being more careful what we give the model as input and what we do with the output. Bridging these gaps will require global collaboration among scientists, policymakers, industry leaders, and civil society.</p>
+        </article>
+    </div>
+</body>
+</html>
