@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI learning - Blog Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ec75bccfcd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="blog-style.css">
+</head>
+
+<body id="pagetop">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="sideNav" style="min-height: 75px; padding-left:50px; padding-top: 15px; background-color:#CD5C5C;">
+      <a class="navbar-brand" href=#pagetop>
+        <span class="d-block d-lg-none">Pieter Verbeke</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color: #FFFFFF;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Academic work.html" style="color: #FFFFFF;">Academic work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Applied projects.html" style="color: #FFFFFF;">Applied projects</a>
+          </li>
+          <li class="nav-item active"><a class="nav-link" href="../Professional experience.html">Professional experience</a></li>
+          <li class="nav-item active"><a class="nav-link" href="../Blogs.html">Blogs</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" style="background-color:#FFEBCD;">
+        <h1 style = "color:inherit; text-align:center; padding-top: 125px;">How Do AI and Humans Learn?<br>Comparing Brain and Machine Learning</h1>
+        <p class="tags">#AI #Neuroscience #Learning</p>
+
+        <article>
+            <h2><strong>How Do We Learn?</strong></h2>
+            <p>Learning is one of the most fascinating abilities of the human brain. From recognizing faces to playing an instrument, our brain constantly adapts based on experience. AI models, like ChatGPT, are also learning systems but how does AI learning relate to human learning?</p>
+            <p>Let’s explore three major learning methods:</p>
+            <ol>
+                <li><strong>Hebbian Learning</strong> – The brain’s way of strengthening connections</li>
+                <li><strong>Reinforcement Learning</strong> – Learning through rewards and consequences</li>
+                <li><strong>Backpropagation</strong> – The method that powers deep learning in AI</li>
+            </ol>
+            
+            <h2><strong>Hebbian Learning: “Neurons That Fire Together, Wire Together”</strong></h2>
+            <p>One of the most famous learning rules in neuroscience is Hebbian learning, which can be summarized as: “neurons that fire together, wire together.” This means that if two brain cells (neurons) are active at the same time, their connection will become stronger. Hebbian learning is not just a theoretical rule—there is a biological process that makes it happen, called long-term potentiation (LTP).</p>
+            <h3>Example: Associating Taste and Smell</h3>
+            <p>Imagine you try a new fruit for the first time—let’s say a mango. As you take a bite, your brain links the sweet taste with the fruity aroma. The next time you smell a mango, your brain instantly recalls the flavor, even before you take a bite. This happens because neurons in your brain strengthen connections between taste and smell, making it easier to recognize and recall flavors in the future.</p>
+            <h3>How AI Uses Hebbian Learning</h3>
+            <p>Some AI models, like self-organizing maps, use a similar idea: patterns that frequently appear together in data form stronger associations. However, AI often needs millions of examples to learn something that humans can learn in just a few tries.</p>
+            
+            <h2><strong>Reinforcement Learning: Learning from Rewards and Mistakes</strong></h2>
+            <p>Unlike Hebbian learning, reinforcement learning is based on trial and error. Here, learning is driven by the release of dopamine, a reward chemical, reinforcing successful actions. However, learning is also a predictive process. <a href = "https.//doi.org/10.1126/science.275.5306.1593">Research by Schultz et al.</a> shows that during learning, dopamine release shifts from the moment of receiving a reward to the moment of the reward-predicting cue or behavior. This helps the brain anticipate outcomes and refine decision-making over time.</p>
+            <h3>Example: Thank God It’s Friday</h3>
+            <p>During the weekend you have more time to do fun things, spend time with your family and friends and organise parties. While the actual reward is of course the party or other fun activity, people learn quickly to become excited simply because it is Friday. This happens because dopamine release shifts from the actual reward (party with friends) to the cue predicting the reward (Friday is the start of the weekend).</p>
+            <p>This predictive learning process is also why active testing works better for learning than passive studying (see our recent preprint). When you take a test, your brain strengthens connections by linking information to specific cues. Over time, these cues predict the correct answers, making recall easier when it truly matters.</p>
+            <h3>How AI Uses Reinforcement Learning</h3>
+            <p>AI learns from rewards too! Reinforcement learning is how AI systems like AlphaGo (which defeated the world champion in Go) learned to make strategic moves. A nice documentary about this system is <a href = "https://www.youtube.com/watch?v=WXuK6gekU1Y">available here.</a> Just like in human learning, where dopamine shifts from the actual reward to the reward-predicting cue, AlphaGo only receives a reward when it wins a game but it learns to assign rewards to individual moves (even at the start of the game) that increase its chances of winning. This process, known in AI as temporal difference learning, allows the system to make smarter decisions earlier in the game by predicting future success rather than just reacting to immediate rewards.</p>
+            <p>A crucial challenge in training AI systems with reinforcement learning is defining a clear reward function—in other words, deciding when and how to reward the system for its actions. This is particularly difficult in tasks where success is subjective, like generating a good chatbot response. What makes an answer from ChatGPT “good”? It could be factually correct, well-written, engaging, or aligned with user expectations—but these are all subjective criteria. Moreover, providing a reward score for each response of ChatGPT is quite time intensive.</p>
+        
+            <h2><strong>Backpropagation: The Power Behind Deep Learning</strong></h2>
+            <p>The principles of learning described above work well in small networks, but both the brain and modern AI models are incredibly complex, containing millions or even billions of neurons and connections. In such large systems, learning is not just about changing a single connection but about modifying multiple connections across a vast network.</p>
+            <p>This challenge is known as the credit assignment problem—figuring out which connections need to change to improve performance. In AI, this problem is solved by the backpropagation learning rule, developed by Nobel-prize winners Hinton and Rumelhart. As the name suggests, backpropagation works by propagating errors backward from the output layer all the way to the input layer, allowing the AI to fine-tune the strength of many connections at once.</p>
+            <h3>Example: Studying for an Exam</h3>
+            <p>Imagine you take a practice test and get some answers wrong. You don’t just learn that you made mistakes—you identify where you went wrong, whether it was misunderstanding a concept or misapplying a formula. Next time, you focus on improving those weak areas. Backpropagation in AI works the same way: it compares predictions to the correct answer, calculates the error, and then adjusts the connections throughout the entire network to improve future performance.</p>
+            <h3>Can the Brain Use Backpropagation?</h3>
+            <p>Unlike AI, the human brain does not have clearly defined layers with explicit error signals. It remains a mystery how the brain solves the credit assignment problem. Some researchers, <a href = "https://ora.ox.ac.uk/objects/uuid:862189c1-0088-4f78-b17a-2748c2019209/download_file?file_format=&safe_filename=Lillicrap_v6_2020.pdf&type_of_work=Journal+article">like Lillicrap et al. (2020)</a>, argue that the brain may use a biological approximation of backpropagation through feedback connections between different brain areas. While the exact mechanism is still unknown, understanding these processes better could help bridge the gap between AI learning and human intelligence.</p>
+        
+            <h2><strong>Learning in AI and Humans – The same but different</strong></h2>
+            <p>While learning in both AI and the human brain relies on similar concepts such as reinforcement learning and Hebbian learning, the way learning is implemented is quite different. In AI, learning happens through backpropagation of errors across well-defined layers, allowing the system to fine-tune its connections efficiently.</p>
+            <p>Interestingly, human learning follows a strikingly similar error-correction process, but it is not identical. Unlike AI, the human brain does not have a neatly structured way to propagate errors, yet it still manages to adjust and refine knowledge in a highly effective manner. In fact, we may understand AI learning better than human learning—even though AI is often called a "black box," the 86 billion neurons in the human brain form an even more complex and mysterious system.</p>
+            <p>This raises an important question: Do we need to fully understand the human brain to build better AI? Or can engineers develop alternative learning strategies, like backpropagation, that don’t necessarily mimic biological intelligence but still lead to powerful AI systems?</p>
+            <p><a href = "https://www.youtube.com/watch?v=OBMsP7VNU9Q">A podcast debating exactly this question can be found by cliking here</a></p>
+          </article>
+    </div>
+</body>
+</html>
