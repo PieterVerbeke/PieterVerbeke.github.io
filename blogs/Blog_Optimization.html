@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimization - Blog Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ec75bccfcd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="blog-style.css">
+</head>
+
+<body id="pagetop">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="sideNav" style="min-height: 75px; padding-left:50px; padding-top: 15px; background-color:#CD5C5C;">
+      <a class="navbar-brand" href=#pagetop>
+        <span class="d-block d-lg-none">Pieter Verbeke</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color: #FFFFFF;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Academic work.html" style="color: #FFFFFF;">Academic work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Applied projects.html" style="color: #FFFFFF;">Applied projects</a>
+          </li>
+          <li class="nav-item active"><a class="nav-link" href="../Professional experience.html">Professional experience</a></li>
+          <li class="nav-item active"><a class="nav-link" href="../Blogs.html">Blogs</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" style="background-color:#FFEBCD;">
+        <h1 style = "color:inherit; text-align:center; padding-top: 125px;">Don’t Just Stand There—Optimize Something!</h1>
+        <p class="tags">#AI #MachineLearning #Optimization #Forecasting #LossFunctions</p>
+
+        <article>
+            <p>"Don’t just stand there—optimize something!" is the opening sentence of the book <a href="https://play.google.com/store/books/details?id=TCQuEAAAQBAJ&pli=1">Introduction to Modeling Cognitive Processes"</a> by my PhD supervisor. That phrase stuck with me and shaped much of how I’ve approached AI and modeling in general.Recently, while working on a project involving forecasting models, I was reminded just how important it is to think carefully about what we’re optimizing. Because in AI, the optimization goal isn’t just a technical detail—it defines what success really looks like.</p>
+            <h2><strong>The Art of Optimization</strong></h2>
+            <p>When we talk about AI, we often focus on models, data, and performance. But at the heart of almost every AI system lies a simple but powerful principle: optimization. An AI model learns by optimizing something—whether it’s predicting the next word in a sentence, recognizing an image, or forecasting future trends.</p>
+            <p>In machine learning, this “something” is usually called a loss function: a formula that tells the system how far it is from the correct answer, and how badly it should care about being wrong. You might think this is straightforward, but choosing or designing a loss function is one of the most important—and underrated—decisions in AI development.</p>
+            <p>Because here’s the thing: what you optimize defines what the AI learns to care about.</p>
+            <p>This is why a well-known saying in machine learning is: <br>"Tell me your loss function, and I’ll tell you what your model really does."</p>"
+
+            <h2><strong>A Forecasting Example: Not All Mistakes Are Equal</strong></h2>
+            <p>Let’s say you’re using AI to forecast how much stock a company needs for an upcoming season. If your model underestimates demand, products run out and customers are unhappy. If it overestimates, you waste storage space and money. But are these two mistakes equally bad?</p>
+            <p>In most real-world cases, they’re not. Underestimating demand is usually worse than overestimating. So when training your model, you want to reflect that in your optimization. Instead of punishing over- and under-estimates equally, you assign more weight to underestimates. This way, the AI will learn to be on the safer side</p>
+            <p>This approach—adjusting how we measure “wrongness”—might sound technical, but it’s a powerful way to steer behavior.</p>
+
+            <h2><strong>When Optimization Gets Tricky</strong></h2>
+            <p>Crucially, the challenge is not always just prioritizing types of mistakes like over- or underestimates. in many real-world scenarios, it’s simply not clear what we should optimize.</p>
+            <p>Let’s take an example:<br>Imagine you’re building an AI model to help select job candidates. Should the model optimize for:
+            <ul>
+                <li>Matching skills with job descriptions?</li>
+                <li>Predicting long-term job satisfaction?</li>
+                <li>Ensuring diversity in hiring?</li>
+                <li>Maximizing the likelihood of passing interviews?</li>
+            </ul>
+            Each of these goals would require a different loss function—and choosing one could dramatically change the behavior of the model. Worse, some of these goals may even conflict with one another. </p>
+            <p>We see a similar challenge in generative AI systems like ChatGPT or image generators. These models are typically optimized to produce coherent, plausible, and likable outputs—text, images, videos that people enjoy. Here, user satisfaction is explicitly implemented in the optimization. But what someone likes to hear isn’t always what’s true or helpful. This can reinforce biases, spread overly optimistic views, or avoid necessary critique. It’s another reminder that the goal of optimization needs to be examined carefully—because user satisfaction isn’t always the same as ethical or factual correctness.
+            <p>This is why responsible AI development requires not just good code, but good judgment.</p>
+
+            <h2><strong>Conclusion: Think Before You Optimize</strong></h2>
+            <p>If AI is a tool, then optimization is its guiding hand. But we need to be thoughtful about what we ask our models to optimize—and whose interests that really serves. The next time someone talks about “training a powerful model,” ask them: optimize for what?
+            <p>Because in AI, as in life, doing the right thing starts with knowing what “right” means.</p>
+            
+            <h4>Links to the sources</h4>
+            <ul>
+                <li>Introduction to Modelling Cognitive Processes: <a href = "https://play.google.com/store/books/details?id=TCQuEAAAQBAJ&pli=1">https://play.google.com/store/books/details?id=TCQuEAAAQBAJ&pli=1</a></li>
+            </ul>
+          </article>
+    </div>
+</body>
+</html>
