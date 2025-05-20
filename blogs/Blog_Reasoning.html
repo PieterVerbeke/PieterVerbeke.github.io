@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Blog Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ec75bccfcd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="blog-style.css">
+</head>
+
+<body id="pagetop">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="sideNav" style="min-height: 75px; padding-left:50px; padding-top: 15px; background-color:#CD5C5C;">
+      <a class="navbar-brand" href=#pagetop>
+        <span class="d-block d-lg-none">Pieter Verbeke</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color: #FFFFFF;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Academic work.html" style="color: #FFFFFF;">Academic work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Applied projects.html" style="color: #FFFFFF;">Applied projects</a>
+          </li>
+          <li class="nav-item active"><a class="nav-link" href="../Professional experience.html">Professional experience</a></li>
+          <li class="nav-item active"><a class="nav-link" href="../Blogs.html">Blogs</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" style="background-color:#FFEBCD;">
+        <h1 style = "color:inherit; text-align:center; padding-top: 125px;">Thinking Fast and Slow—In Brains and Machines</h1>
+        <p class="tags">#AI #CognitiveScience #ThinkingFastAndSlow #LLM #Reasoning</p>
+
+        <article>
+            <h2><strong>When Human Fallacies Meet AI Flaws</strong></h2>
+            <p>Two weeks ago, I attended <a href = "https://www.cyber3lab.be/en/events/live-hacking-show-artifhacking-intelligence">a show by Inti De Ceukelaire</a> titled <em>Artifhacking Intelligence</em>. It was a clever and entertaining take on how AI can be tricked—or “hacked”—to make mistakes. But what stood out most was how many of these so-called "AI weaknesses" closely mirrored the quirks and fallacies of human thinking.</p>
+            <p>Take this example: if you ask an AI to choose a number between 1 and 10, it will almost always say 7. That seems oddly specific—until you try the same experiment with a room full of people. Ask them to pick a number between 1 and 10, then ask who picked 7, and a large portion will raise their hand. Why? Because the number 7 is everywhere: 7 days of the week, 7 deadly sins, 007… This makes it top of mind for many people.</p>
+            <p>It’s fascinating how often we criticize AI for being imperfect while forgetting that humans aren't perfect either. Once again, understanding how the human brain works can help us design better AI.</p>
+            <p>For instance, the rise of so-called <em>"reasoning models”</em> is directly inspired by insights from psychology. These models are being developed to mimic not just the output of human thinking, but the process. With the Nobel Prize-winning theory of <em>Thinking Fast and Slow</em> by Kahneman and Tversky as a key influence, reasoning models use internal monologue to think “slow” and solve problems step-by-step</p>
+  
+            <h2><strong>Two-System Thinking: How psychological theory drives AI development</strong></h2>
+            <p><a href = "https://books.google.be/books?id=ZuKTvERuPG8C&printsec=frontcover&hl=nl&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false">The work of Kahneman and Tversky</a> received the Nobel Prize in Economics because they demonstrated that humans are not purely rational beings but are subject to a host of cognitive biases and logical fallacies. More specifically, they argued that we have two modes of thinking:</p>
+            <h3>System 1: Fast and intuitive</h4>
+            <p>System 1 is quick, automatic, and effortless. It helps us handle everyday decisions like:
+            <ul>
+                <li>“What’s 2 + 2?”</li>
+                <li>“Is that a dog or a cat?”</li>
+                <li>“Would that food taste good?”</li>
+            </ul></p>
+            <p>It’s efficient, but often prone to error when deeper thinking is required.</p>
+            <p>A classic example is this math puzzle:</p>
+            <p><em>If John bought a baseball bat and a ball for 1.10 euros, and the bat costs 1 euro more than the ball, how much did the ball cost?</em></p>
+            <p>A lot of people instinctively answer 10 cents -potentially even with the same confidence as an AI system would. However, the correct answer is 5 cents. System 2 thinking is required to get it right.</p>
+            <h3>System 2: Slow and deliberate</h4>
+            <p>System 2 is slow, deliberate, and effortful. It kicks in when we do complex reasoning, solve puzzles, or analyze data. But activating it requires conscious effort—and we don’t always make that effort when we should.</p>
+
+            <h2><strong>Language Models: Fast Thinkers by Default</strong></h2>
+            <p>Earlier versions of ChatGPT behave very much like System 1 thinkers. They’re trained to predict the most likely next word based on massive text datasets.</p>
+            <p>This makes them extremely fluent but not always logically accurate.</p>
+            <p>However, with the right prompt, these models can mimic System 2 behavior. Ask your model to <em>Think step by step</em> or <em>Reflect before answering</em>.</p>
+            <p>Modern reasoning models take this one step further. They now default to step-by-step processing. While it’s not true human reasoning, it demonstrates that language models can be nudged into more analytical behavior.</p>
+
+            <h2><strong>The Blurry Line Between Intuition and Reasoning</strong></h2>
+            <p>In both humans and machines, the line between fast intuition and slow reasoning isn’t always clear. Sometimes we believe we’re being logical when we’re simply rationalizing a gut reaction. Sometimes AI surprises us with what seems like genuine insight—when it’s really just surfacing patterns.</p>
+            <p>This overlap is fascinating—and critically important. Especially when AI is used in high-stakes decisions.</p>
+            <p>Should we trust its fluency? Or demand transparency into how it “thinks”? Should we rely on its System 1-like responses—or build new tools that favor System 2-style reasoning?</p>
+            <p>Either way, it’s yet another reminder that understanding human intelligence teaches us about AI—and vice versa.</p>
+            
+            <h4>Links to the sources</h4>
+            <ul>
+                <li>Thinking fast and slow by Kahneman & Tversky: <a href = "https://books.google.be/books?id=ZuKTvERuPG8C&printsec=frontcover&hl=nl&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false">"https://books.google.be/books?id=ZuKTvERuPG8C&printsec=frontcover&hl=nl&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false"</a></li>
+            </ul>
+          </article>
+    </div>
+</body>
+</html>
