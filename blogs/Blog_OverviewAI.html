@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI overview - Blog Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ec75bccfcd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="blog-style.css">
+</head>
+
+<body id="pagetop">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="sideNav" style="min-height: 75px; padding-left:50px; padding-top: 15px; background-color:#CD5C5C;">
+      <a class="navbar-brand" href=#pagetop>
+        <span class="d-block d-lg-none">Pieter Verbeke</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color: #FFFFFF;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Academic work.html" style="color: #FFFFFF;">Academic work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Applied projects.html" style="color: #FFFFFF;">Applied projects</a>
+          </li>
+          <li class="nav-item active"><a class="nav-link" href="../Professional experience.html">Professional experience</a></li>
+          <li class="nav-item active"><a class="nav-link" href="../Blogs.html">Blogs</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" style="background-color:#FFEBCD;">
+        <h1 style = "color:inherit; text-align:center; padding-top: 125px;">AI Innovation in 2024-2025: A Race to the Top—and the Bottom</h1>
+        <p class="tags">#AI #Innovation</p>
+
+        <article>
+            <h2><strong>Race to the Top: The Acceleration of AI Innovation</strong></h2>
+            <p>AI innovation has progressed extremely fast over the past academic year. In september, we were still discovering the power of AI for text and image generation and making fun of its "hallucinations."</p>
+            <p>But things have changed quickly. While hallucinations will never fully disappear (<a href = https://arxiv.org/abs/2409.05746>https://arxiv.org/abs/2409.05746</a>, <a href = https://arxiv.org/html/2503.05806v1>https://arxiv.org/html/2503.05806v1</a>), major strides have been made to reduce them and improve reliability. A key step in that evolution was the development of <strong>reasoning models</strong>: systems designed to break down problems into steps and reflect on their own answers. As I described in a previous blog post, forcing AI, but also humans, to think slower will reduce the amount of errors that they make.</p>
+            <p>Another big leap came with the widespread adoption of <strong>Retrieval-Augmented Generation (RAG) systems.</strong> Also this was a hot research topic in september; now they’re everywhere. Many company websites now offer their own RAG-powered chatbots; LLMs connected to internal documentation or FAQs. A stunning public example is <a href = "https://notebooklm.google.com/">NotebookLM</a>, which allows users to upload documents and then summarize or question them using a personalized AI assistant. The tool’s ability to generate a 15-20 minute podcast from a few documents in under 10 minutes is just mind-blowing.</p>
+            <p>This push to innovate hasn’t just improved performance it has changed the way we think about AI modularity and efficiency. Take the DeepSeek models, which achieve top-tier performance levels while using far fewer computational resources than giants like GPT-4 or Gemini. Their Mixture-of-Experts (MoE) architecture, which activates only a fraction of its parameters per response (see also <a href = Blog_deepseek.html>my blog on Deepseek and modularity</a>).</p>
+            <p>Beyond that, we’ve seen the rise of <strong>AI agents.</strong> These systems don’t just respond, they act. A very simple example is Perplexity, which combines LLM reasoning with real-time web searches. Other systems that have emerged are planning assistants that can now manage your calendar, organize vacations, and more. Some even speculate about AI systems that can run entire companies (and yes, <a href = "https://the-agent-company.com/">people are already experimenting with it).</p>
+            <p>It’s exhilarating to watch. But not without concern. The speed of AI innovation makes it hard to adequately estimate the risks of the systems. Luckily, Europe is at the forefront of AI regulation with the EU AI act and experts are making strong efforts to safeguard AI safety (see <a href = "https://arxiv.org/abs/2501.17805">the AI safety report</a> and <a href = Blog_AISafety.html> my blog post</a> on it ). Still, AI innovation is happening mostly in less regulated and/or less transparent countries like USA and China. It is clear that <strong>AI literacy and risk awareness training for the general public will be crucial for the future of our society.</strong></p>
+            
+            <h2><strong>Race to the Bottom: Commercial and Environmental Pressures</strong></h2>
+            <p>For every leap in AI performance, there’s been an equally intense race behind the scenes; a commercial race between tech giants. Google, Amazon, Microsoft (via OpenAI), Apple, and others are locked in a high-stakes battle to lead the AI revolution. More than 170 AI startups have been acquired by these companies in 2024-2025.</p>
+            <p>To stay ahead, some of them are operating at massive losses. OpenAI is expected to lose up to 14 dollars billion annually, just to stay at the forefront and keep users tied to its ecosystem. <strong>The question is: How long can this continue? </strong>How long will these systems remain free to use? How long can companies keep prioritizing growth over profitability?</p>
+            <p>Meanwhile, <strong>the environmental cost</strong> of this race is increasingly alarming (see also <a href = Blog_SustainableAI.html>my blog post on AI sustainability</a>). The data hunger of AI models is staggering. New data centers are popping up around the world, and demand for computational resources is going through the roof.</p>
+            <p>Big tech firms are even signing deals for dedicated nuclear power plants (e.g., <a href = "https://smallcaps.com.au/microsoft-historic-nuclear-power-deal-ai-data-centres/">https://smallcaps.com.au/microsoft-historic-nuclear-power-deal-ai-data-centres/</a>) The message is clear: AI is resource-hungry, and that appetite is not shrinking. Can we keep scaling AI without breaking our energy systems or our planet?</p>
+
+            <h2><strong>Looking into the future</strong></h2>
+            <p>The AI revolution is definitely a double-edged sword that we should handle carefully. However, as a researcher I remain positive and excited. There are still so many challenges to solve and I am curious to see how the field will tackle these challenges.</p>
+            <h4><strong>1. Embodiment</strong></h4>
+            <p>One key remaining challenge is embodiment. Language models are great at talking about the world, but what happens when they have to act in it? True general intelligence will require AI systems to operate in real-world environments, through robots or other interfaces. But real-world interaction is messy. It’s unpredictable. It requires flexibility.</p>
+            <p>It’s clear by now that I strongly believe insights from human (embodied) cognition can help AI development. Our brains evolved to reason with sensory input, physical feedback, and social interaction. Replicating that in machines is still an open frontier. But it is definitely a frontier. According to Forbes (<a href = "https://www.forbes.com/sites/chuckbrooks/2025/05/07/the-rise-of-the-humanoid-robotic-machines-is-nearing/">https://www.forbes.com/sites/chuckbrooks/2025/05/07/the-rise-of-the-humanoid-robotic-machines-is-nearing/</a>) the humanoid robot market is expected to grow to at least 35 billion dollars in 2035.</p>
+            <h4><strong>2. Data and Energy Use</strong></h4>
+            <p>Another key challenge is of course the data and energy consumption of AI. While the human brain runs on the power of a lightbulb. AI, is causing the reopening of nuclear plants and fossil fuel sources.</p>
+            <p>We’ve seen glimmers of efficiency, like DeepSeek’s Mixture-of-Experts design, but much more innovation is needed. One promising direction is the idea of a <strong>“data diet.”</strong> <a href =  https://arxiv.org/abs/2507.03168>A recent paper </a> showed that if AI is trained on visual inputs in the same order and structure as a developing human child, it can outperform traditional systems while using less data.</p>
+            <p>Efficiency through biologically inspired training might just be the next major breakthrough.</p>
+            <h4><strong>3. Privacy</strong></h4>
+            <p>Finally, the AI innovation should make us concerned about our privacy. The data hunger and possibilities of AI push companies to collect more and more data. The computing resources of most AI models require to use cloud computing and have your data on a central storage space. As users you have little control over your data and you have to trust on regulations and the integrity of AI companies. But can we trust this? Or even worse, what happens if a major AI company suddenly crashes in the race to the bottom described above? What happens with the data and datacenters if there is no one to guard it anymore?</p>
+            <p>Some data is just too private to give to cloud-based AI systems. Think about the increasing interest for AI in healthcare for example. Companies like Google and Microsoft already jumped on the healthcare market (see <a href = "https://deepmind.google/models/gemma/medgemma/"> https://deepmind.google/models/gemma/medgemma/</a> and <a href = "https://microsoft.ai/new/the-path-to-medical-superintelligence/">https://microsoft.ai/new/the-path-to-medical-superintelligence/</a>) but is this really data that we want to store on their clouds? Advancements in edge computing, AI computing efficiency and data regulation will be crucial to safeguard our privacy.</p>
+            
+            <h2><strong>Conclusion: The Race We Want to Win</strong></h2>
+            <p>Yes, we’re in a race. One filled with mind-blowing breakthroughs and breathtaking risks</p>
+            <p>But let’s make sure it’s a race to the right destination. One that values human insight, responsible innovation, and sustainable progress.</p>
+            <p>Because winning the AI race isn’t just about going faster. It’s about choosing the right direction.</p>
+            
+            <h4>Relevant resources</h4>
+            <ul>
+                <li>LLMs will always hallucinate: <a href = https://arxiv.org/abs/2409.05746>https://arxiv.org/abs/2409.05746</a></li>
+                <li>I think, therefore I hallucinate: <a href = https://arxiv.org/html/2503.05806v1>https://arxiv.org/html/2503.05806v1</a></li>
+                <li>Example of a RAG tool:<a href = "https://notebooklm.google.com/">NotebookLM</a></li>
+                <li>DeepSeek and modularity: <a href = Blog_deepseek.html>my blog on Deepseek and modularity</a></li>
+                <li>Experiments on running companies with AI agents: <a href = "https://the-agent-company.com/">The agent company</a></li>
+                <li>AI safety: <a href = "https://arxiv.org/abs/2501.17805">The international report</a> and <a href = Blog_AISafety.html> my blog post</a></li>
+                <li>Sustainable AI: <a href = Blog_SustainableAI.html>my blog post on AI sustainability</a></li>
+                <li>Microsoft acquiring a private nuclear power plant: <a href = "https://smallcaps.com.au/microsoft-historic-nuclear-power-deal-ai-data-centres/">https://smallcaps.com.au/microsoft-historic-nuclear-power-deal-ai-data-centres/</a></li>
+                <li>The power of the data diet: <a href =  https://arxiv.org/abs/2507.03168>https://arxiv.org/abs/2507.03168</a>
+                <li>MedGemma by Google Deepmind: <a href = "https://deepmind.google/models/gemma/medgemma/">https://deepmind.google/models/gemma/medgemma/</a></li>
+                <li>Microsoft AI in healthcare: <a href = "https://microsoft.ai/new/the-path-to-medical-superintelligence/">https://microsoft.ai/new/the-path-to-medical-superintelligence/</a></li>
+            </ul>
+          </article>
+    </div>
+</body>
+</html>
